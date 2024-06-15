@@ -8,7 +8,6 @@ const {
   updateInstructor,
 } = require("../controllers/instructor");
 // instruction: import the book model
-const Intructor = require("../models/instructor");
 const Instructor = require("../models/instructor");
 
 // instruction: GET /: List all instructors

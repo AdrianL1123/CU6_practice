@@ -17,8 +17,7 @@ const {
 */
 router.get("/", async (req, res) => {
   try {
-    const { instructor } = req.query;
-    const courses = await getCourses(instructor);
+    const courses = await getCourses();
     res.status(200).send(courses);
   } catch (e) {
     res.status(400).send({ message: e.message });
@@ -51,15 +50,15 @@ router.post("/", async (req, res) => {
       description,
       enrollmentCount,
     } = req.body;
-    const newCourse = await addCourse({
+    const newCourse = await addCourse(
       title,
       instructor,
       startDate,
       endDate,
       subject,
       description,
-      enrollmentCount,
-    });
+      enrollmentCount
+    );
     res.status(200).send(newCourse);
   } catch (e) {
     res.status(400).send({

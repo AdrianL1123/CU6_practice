@@ -22,17 +22,22 @@ const courseSchema = new Schema({
     ref: "Instructor",
     required: true,
   },
+
   startDate: {
     type: Date,
+    required: true,
   },
   endDate: {
     type: Date,
+    required: true,
   },
   subject: {
     type: String,
+    required: true,
   },
   description: {
     type: String,
+    required: true,
   },
   enrollmentCount: {
     type: Number,

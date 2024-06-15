@@ -19,7 +19,7 @@ app.use(corsHandler);
 
 // instruction: setup MongoDB Connection
 mongoose
-  .connect("mongodb://127.0.0.1:27017/courses")
+  .connect("mongodb://127.0.0.1:27017/cu6")
   .then(() => {
     console.log("MongoDB Connected");
   })

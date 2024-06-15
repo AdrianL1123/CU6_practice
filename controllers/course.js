@@ -5,13 +5,9 @@ const Course = require("../models/course");
 //   throw new Error(e);
 // }
 
-const getCourses = async (instructor) => {
+const getCourses = async () => {
   try {
-    let filters = {};
-    if (instructor) {
-      filters.instructor = instructor;
-    }
-    const courses = await Course.find(filters).populate("instructor");
+    const courses = await Course.find().populate("instructor");
     return courses;
   } catch (e) {
     throw new Error(e);

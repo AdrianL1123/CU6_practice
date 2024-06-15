@@ -16,9 +16,11 @@ const instructorSchema = new Schema({
   },
   qualification: {
     type: String,
+    required: true,
   },
   profile: {
     type: String,
+    required: true,
   },
   coursesTaught: {
     type: Number,
