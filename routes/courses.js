@@ -2,13 +2,13 @@ const express = require("express");
 const router = express.Router();
 
 // instruction: import the course model
-const Course = require("../models/course");
 
 const {
   getCourse,
   getCourses,
   addCourse,
   updateCourse,
+  deleteCourse,
 } = require("../controllers/course");
 
 /* 
@@ -101,8 +101,8 @@ router.put("/:id", async (req, res) => {
 // instruction: setup DELETE /:id: Remove a course by its `_id`
 router.delete("/:id", async (req, res) => {
   try {
-    const deleteCourse = await Course.findByIdAndDelete(req.params.id);
-    res.status(200).send(deleteCourse);
+    const deletedCourse = await deleteCourse(req.params.id);
+    res.status(200).send(deletedCourse);
   } catch (e) {
     res.status(400).send({
       message: e.message,

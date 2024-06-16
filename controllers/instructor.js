@@ -54,9 +54,19 @@ const updateInstructor = async (
   return updatedInstructor;
 };
 
+const deleteInstructor = async (id) => {
+  try {
+    const deletedInstructor = await Instructor.findByIdAndDelete(id);
+    return deletedInstructor;
+  } catch (e) {
+    throw new Error(e);
+  }
+};
+
 module.exports = {
   getInstructors,
   getInstructor,
   addInstructor,
   updateInstructor,
+  deleteInstructor,
 };

@@ -70,4 +70,19 @@ const updateCourse = async (
   return updatedCourse;
 };
 
-module.exports = { getCourses, getCourse, addCourse, updateCourse };
+const deleteCourse = async (id) => {
+  try {
+    const deletedCourse = await Course.findByIdAndDelete(id);
+    return deletedCourse;
+  } catch (e) {
+    throw new Error(e);
+  }
+};
+
+module.exports = {
+  getCourses,
+  getCourse,
+  addCourse,
+  updateCourse,
+  deleteCourse,
+};

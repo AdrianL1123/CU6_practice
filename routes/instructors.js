@@ -6,9 +6,9 @@ const {
   getInstructor,
   addInstructor,
   updateInstructor,
+  deleteInstructor,
 } = require("../controllers/instructor");
 // instruction: import the book model
-const Instructor = require("../models/instructor");
 
 // instruction: GET /: List all instructors
 router.get("/", async (req, res) => {
@@ -73,8 +73,8 @@ router.put("/:id", async (req, res) => {
 // instruction: setup DELETE /:id: Delete a instructor by its _id
 router.delete("/:id", async (req, res) => {
   try {
-    const deleteInstructor = await Instructor.findByIdAndDelete(req.params.id);
-    res.status(200).send(deleteInstructor);
+    const deletedInstructor = await deleteInstructor(req.params.id);
+    res.status(200).send(deletedInstructor);
   } catch (e) {
     res.status(400).send({
       message: e.message,
